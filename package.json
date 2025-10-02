@@ -1,0 +1,80 @@
+{
+  "name": "vue-currency",
+  "version": "2.0.0",
+  "description": "Modern Vue 3 currency input component and directive with TypeScript support",
+  "type": "module",
+  "main": "dist/vue-currency.js",
+  "module": "dist/vue-currency.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-currency.esm.js",
+      "require": "./dist/vue-currency.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "build:watch": "vite build --watch",
+    "build:demo": "vite build --mode demo",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "type-check": "vue-tsc --noEmit",
+    "size": "size-limit",
+    "docs:dev": "vite --config docs/vite.config.js",
+    "docs:build": "vite build --config docs/vite.config.js",
+    "docs:preview": "vite preview --config docs/vite.config.js"
+  },
+  "keywords": [
+    "vue3",
+    "vue",
+    "input",
+    "mask",
+    "directive",
+    "currency",
+    "money",
+    "typescript",
+    "composition-api"
+  ],
+  "author": "Assoft <https://github.com/assoft>",
+  "license": "MIT",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.0.2",
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "@vue/test-utils": "^2.4.3",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "jsdom": "^23.0.1",
+    "prettier": "^3.1.1",
+    "size-limit": "^11.0.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-dts": "^3.7.3",
+    "vitest": "^1.1.0",
+    "vue": "^3.4.0",
+    "vue-tsc": "^1.8.25"
+  },
+  "size-limit": [
+    {
+      "path": "dist/vue-currency.js",
+      "limit": "2 KB"
+    }
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

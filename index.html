@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-money v2 - Vue 3 Currency Input</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .example {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #e1e5e9;
+        border-radius: 6px;
+        background: #fafbfc;
+      }
+      .example h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+      .input-group {
+        margin: 10px 0;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #555;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+      .result {
+        margin-top: 10px;
+        padding: 10px;
+        background: #e8f5e8;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #2d5a2d;
+      }
+      .code {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 4px;
+        font-family: 'Monaco', 'Menlo', monospace;
+        font-size: 14px;
+        overflow-x: auto;
+        margin: 10px 0;
+      }
+      .custom-input {
+        border: 2px solid #007bff;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 18px;
+        background: #f8f9ff;
+        transition: all 0.3s ease;
+      }
+      .custom-input:focus {
+        border-color: #0056b3;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      }
+      .event-input {
+        border: 2px solid #28a745;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 16px;
+        background: #f8fff8;
+        transition: all 0.2s ease;
+      }
+      .event-input:focus {
+        border-color: #1e7e34;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <h1>💰 v-money v2</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+          Modern Vue 3 currency input with TypeScript support
+        </p>
+        
+        <div class="example">
+          <h3>Basic Usage</h3>
+          <div class="input-group">
+            <label>Amount:</label>
+            <input v-model.lazy="basicAmount" v-money="basicConfig" placeholder="Enter amount" />
+          </div>
+          <div class="result">Value: {{ basicAmount }}</div>
+          <div class="code">
+            &lt;input v-model.lazy="amount" v-money="config" /&gt;
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>Component Usage</h3>
+          <div class="input-group">
+            <label>Price:</label>
+            <v-money v-model="componentAmount" v-bind="componentConfig" class="custom-input" />
+          </div>
+          <div class="result">Value: {{ componentAmount }}</div>
+          <div class="code">
+            &lt;v-money v-model="price" v-bind="config" class="custom-input" /&gt;
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>Custom Format (Brazilian Real)</h3>
+          <div class="input-group">
+            <label>Brazilian Real:</label>
+            <input v-model.lazy="brlAmount" v-money="brlConfig" placeholder="R$ 0,00" />
+          </div>
+          <div class="result">Value: {{ brlAmount }}</div>
+          <div class="code">
+            config: { decimal: ',', thousands: '.', prefix: 'R$ ', precision: 2 }
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>Euro Format</h3>
+          <div class="input-group">
+            <label>Euro:</label>
+            <input v-model.lazy="eurAmount" v-money="eurConfig" placeholder="€ 0.00" />
+          </div>
+          <div class="result">Value: {{ eurAmount }}</div>
+          <div class="code">
+            config: { decimal: '.', thousands: ',', prefix: '€ ', precision: 2 }
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>High Precision</h3>
+          <div class="input-group">
+            <label>Cryptocurrency (4 decimals):</label>
+            <input v-model.lazy="cryptoAmount" v-money="cryptoConfig" placeholder="0.0000" />
+          </div>
+          <div class="result">Value: {{ cryptoAmount }}</div>
+          <div class="code">
+            config: { precision: 4, prefix: '', suffix: ' BTC' }
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>Percentage</h3>
+          <div class="input-group">
+            <label>Percentage:</label>
+            <input v-model.lazy="percentAmount" v-money="percentConfig" placeholder="0.00%" />
+          </div>
+          <div class="result">Value: {{ percentAmount }}</div>
+          <div class="code">
+            config: { precision: 2, prefix: '', suffix: ' %' }
+          </div>
+        </div>
+
+        <div class="example">
+          <h3>Event Handling</h3>
+          <div class="input-group">
+            <label>With Events:</label>
+            <v-money 
+              v-model="eventAmount" 
+              v-bind="basicConfig"
+              @focus="onFocus"
+              @blur="onBlur"
+              @keydown="onKeydown"
+              class="event-input" />
+          </div>
+          <div class="result">Value: {{ eventAmount }}</div>
+          <div class="result">Last Event: {{ lastEvent }}</div>
+          <div class="code">
+            &lt;v-money v-model="amount" @focus="onFocus" @blur="onBlur" /&gt;
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
