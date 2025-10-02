@@ -1,10 +1,16 @@
 # Vue Currency
 
+[![Demo](https://img.shields.io/badge/🚀-Live%20Demo-blue?style=for-the-badge)](https://assoft.github.io/Vue-Currency/)
+
 ![The Mask Money](https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif)
 
 > **Fork Notice**: This is a modernized fork of [v-money](https://github.com/vuejs-tips/v-money) by [Marcos Neves](https://github.com/vuejs-tips). The original project was created for Vue 2, and this fork brings it up to modern standards with Vue 3, TypeScript, and contemporary tooling.
 
 Modern Vue 3 currency input component and directive with TypeScript support. A complete rewrite of v-money for Vue 3 with modern tooling and best practices.
+
+## 🚀 [Live Demo](https://assoft.github.io/Vue-Currency/)
+
+Try the interactive demo to see all features in action!
 
 ## Credits
 
