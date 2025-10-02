@@ -3,16 +3,15 @@
   "version": "2.0.0",
   "description": "Modern Vue 3 currency input component and directive with TypeScript support. Fork of v-money by Marcos Neves.",
   "type": "module",
-  "main": "dist/vue-currency.js",
-  "module": "dist/vue-currency.esm.js",
+  "main": "dist/vue-currency.umd.js",
+  "module": "dist/vue-currency.es.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-currency.esm.js",
-      "require": "./dist/vue-currency.js",
+      "import": "./dist/vue-currency.es.js",
+      "require": "./dist/vue-currency.umd.js",
       "types": "./dist/index.d.ts"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "files": [
     "dist"
@@ -71,6 +70,7 @@
     "jsdom": "^23.0.1",
     "prettier": "^3.1.1",
     "size-limit": "^11.0.2",
+    "terser": "^5.44.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-dts": "^3.7.3",

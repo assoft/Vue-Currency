@@ -1,7 +1,7 @@
 import type { Directive, DirectiveBinding } from 'vue'
 import { format, setCursor, createEvent, mergeConfig } from './utils'
 import { defaultMoneyConfig } from './types'
-import type { MoneyConfig, MoneyDirectiveValue } from './types'
+import type { MoneyDirectiveValue } from './types'
 
 /**
  * Vue 3 directive for money input formatting
@@ -32,7 +32,7 @@ export const VMoneyDirective: Directive<HTMLInputElement, MoneyDirectiveValue> =
 
     // Input handler
     const handleInput = (): void => {
-      const positionFromEnd = inputElement.value.length - inputElement.selectionEnd
+      const positionFromEnd = inputElement.value.length - (inputElement.selectionEnd || 0)
       inputElement.value = format(inputElement.value, config)
       
       // Adjust cursor position

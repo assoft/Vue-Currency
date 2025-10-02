@@ -74,11 +74,11 @@ export interface MoneyEmits {
   /** Emitted when the input changes */
   (event: 'change', value: number | string): void
   /** Emitted when the input receives focus */
-  (event: 'focus', event: FocusEvent): void
+  (event: 'focus', evt: FocusEvent): void
   /** Emitted when the input loses focus */
-  (event: 'blur', event: FocusEvent): void
+  (event: 'blur', evt: FocusEvent): void
   /** Emitted when a key is pressed */
-  (event: 'keydown', event: KeyboardEvent): void
+  (event: 'keydown', evt: KeyboardEvent): void
   /** Emitted when content is pasted */
-  (event: 'paste', event: ClipboardEvent): void
+  (event: 'paste', evt: ClipboardEvent): void
 }
