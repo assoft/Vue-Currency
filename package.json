@@ -1,7 +1,7 @@
 {
   "name": "vue-currency",
   "version": "2.0.0",
-  "description": "Modern Vue 3 currency input component and directive with TypeScript support",
+  "description": "Modern Vue 3 currency input component and directive with TypeScript support. Fork of v-money by Marcos Neves.",
   "type": "module",
   "main": "dist/vue-currency.js",
   "module": "dist/vue-currency.esm.js",
@@ -43,10 +43,20 @@
     "currency",
     "money",
     "typescript",
-    "composition-api"
+    "composition-api",
+    "v-money",
+    "fork"
   ],
   "author": "Assoft <https://github.com/assoft>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/assoft/Vue-Currency.git"
+  },
+  "homepage": "https://github.com/assoft/Vue-Currency#readme",
+  "bugs": {
+    "url": "https://github.com/assoft/Vue-Currency/issues"
+  },
   "peerDependencies": {
     "vue": "^3.0.0"
   },

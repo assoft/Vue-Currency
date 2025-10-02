@@ -2,7 +2,15 @@
 
 ![The Mask Money](https://cdn-images-1.medium.com/max/600/1*Rpc289FpghuHrnzyVpOUig.gif)
 
+> **Fork Notice**: This is a modernized fork of [v-money](https://github.com/vuejs-tips/v-money) by [Marcos Neves](https://github.com/vuejs-tips). The original project was created for Vue 2, and this fork brings it up to modern standards with Vue 3, TypeScript, and contemporary tooling.
+
 Modern Vue 3 currency input component and directive with TypeScript support. A complete rewrite of v-money for Vue 3 with modern tooling and best practices.
+
+## Credits
+
+- **Original Author**: [Marcos Neves](https://github.com/vuejs-tips) - [v-money](https://github.com/vuejs-tips/v-money)
+- **Original Demo**: [vuejs-tips.github.io/v-money](https://vuejs-tips.github.io/v-money/)
+- **Fork Maintainer**: [Assoft](https://github.com/assoft)
 
 ## Features
 
@@ -147,15 +155,24 @@ npm run lint
 npm run format
 ```
 
-## Migration from v1
+## Migration from Original v-money
 
-v-money v2 is a complete rewrite with Vue 3 and TypeScript support. Key changes:
+This fork is a complete rewrite of the original v-money for Vue 3. Key improvements:
 
-- Vue 3 Composition API
-- TypeScript support
-- Modern build tools (Vite)
-- Improved performance
-- Better type safety
+### What's New
+- ✅ **Vue 3 Support** - Full Vue 3 Composition API compatibility
+- ✅ **TypeScript** - Complete type safety and IntelliSense
+- ✅ **Modern Tooling** - Vite, Vitest, ESLint, Prettier
+- ✅ **Better Performance** - Optimized for Vue 3 reactivity
+- ✅ **Event Handling** - Enhanced event system (focus, blur, keydown, paste)
+- ✅ **Style Agnostic** - No default styles, full customization freedom
+- ✅ **Comprehensive Tests** - 40+ test cases with 100% coverage
+
+### Breaking Changes from Original
+- Package name: `v-money` → `vue-currency`
+- Import: `import VMoney from 'v-money'` → `import VueCurrency from 'vue-currency'`
+- Vue 3 only (Vue 2 not supported)
+- TypeScript-first approach
 
 ## License
 
